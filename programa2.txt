@@ -1,0 +1,7 @@
+ Program
+   Variables Setup
+   Robot Program
+     Set DO[0]=On
+     Popup: el control sera compartido por un control externo 5 seg
+     Wait: 5.0
+     Control by 192.168.56.1

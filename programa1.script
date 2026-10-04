@@ -1,0 +1,73 @@
+def unnamed():
+  global _hidden_verificationVariable=0
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  tool_wrench_limit_disable()
+  set_gravity([0.0, 0.0, 9.82])
+  set_safety_mode_transition_hardness(1)
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  motion_version_set(2)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  # begin: URCap Installation Node
+  #   Source: External Control, 1.0.6, FZI Research Center for Information Technology
+  #   Type: External Control
+  # end: URCap Installation Node
+  step_count_5c381442_baa1_45d0_8eaa_99b2b35e97df = 0.0
+  thread Step_Counter_Thread_3dd087c0_c26d_40b4_9cdf_c1d5737915d2():
+    while (True):
+      step_count_5c381442_baa1_45d0_8eaa_99b2b35e97df = step_count_5c381442_baa1_45d0_8eaa_99b2b35e97df + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_3dd087c0_c26d_40b4_9cdf_c1d5737915d2()
+  $ 2 "Robot Program"
+  $ 3 "Popup: se va a simular la letra j"
+  popup("se va a simular la letra j", "Message", False, False, blocking=True)
+  $ 4 "Script: letraJ1.script"
+  movej(p[-0.225,-0.350,-0.050,0,3.1416,0], a=1.0, v=0.5)
+  movel(p[-0.300,-0.300,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.300,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.240,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.260,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.260,-0.375,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movec(p[-0.280,-0.395,-0.150,0,3.1416,0], p[-0.300,-0.375,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.300,-0.375,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  $ 5 "Popup: simular la letra c"
+  popup("simular la letra c", "Message", False, False, blocking=True)
+  $ 6 "Script: letraC.script"
+  movel(p[-0.150,-0.300,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.150,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movec(p[-0.200,-0.350,-0.150,0,3.1416,0], p[-0.150,-0.400,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.150,-0.400,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  $ 7 "Popup: se va a smilar la la letra j2"
+  popup("se va a smilar la la letra j2", "Message", False, False, blocking=True)
+  $ 8 "Script: letraJ2.script"
+  movel(p[-0.100,-0.300,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.100,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.040,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.060,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.060,-0.375,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movec(p[-0.080,-0.395,-0.150,0,3.1416,0], p[-0.100,-0.375,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[-0.100,-0.375,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  $ 9 "Popup: se va a simular la s"
+  popup("se va a simular la s", "Message", False, False, blocking=True)
+  $ 10 "Script: letraS.script"
+  movel(p[0.050,-0.300,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[0.050,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[0.030,-0.300,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movec(p[0.005,-0.325,-0.150,0,3.1416,0], p[0.030,-0.350,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movec(p[0.055,-0.375,-0.150,0,3.1416,0], p[0.030,-0.400,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[0.010,-0.400,-0.150,0,3.1416,0], a=0.5, v=0.1)
+  movel(p[0.010,-0.400,-0.100,0,3.1416,0], a=0.5, v=0.1)
+  movej(p[-0.225,-0.350,-0.050,0,3.1416,0], a=1.0, v=0.5)
+end

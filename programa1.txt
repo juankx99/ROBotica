@@ -1,0 +1,11 @@
+ Program
+   Variables Setup
+   Robot Program
+     Popup: se va a simular la letra j
+     Script: letraJ1.script
+     Popup: simular la letra c
+     Script: letraC.script
+     Popup: se va a smilar la la letra j2
+     Script: letraJ2.script
+     Popup: se va a simular la s
+     Script: letraS.script
