@@ -1,0 +1,109 @@
+def punto3():
+  set_safety_mode_transition_hardness(1)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  set_tool_voltage(0)
+  set_tcp(p[0.0,0.0,0.15,0.0,0.0,0.0])
+  set_payload(0.2)
+  set_gravity([0.0, 0.0, 9.82])
+  step_count_9ec467fe_72c4_4f41_b75c_ee13d369bf30 = 0.0
+  thread Step_Counter_Thread_90e5d71f_3d13_4d3d_be4b_4a4bb8169e6b():
+    while (True):
+      step_count_9ec467fe_72c4_4f41_b75c_ee13d369bf30 = step_count_9ec467fe_72c4_4f41_b75c_ee13d369bf30 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_90e5d71f_3d13_4d3d_be4b_4a4bb8169e6b()
+  # begin: URCap Installation Node
+  #   Source: External Control, 1.0.6, FZI Research Center for Information Technology
+  #   Type: External Control
+  # end: URCap Installation Node
+  # begin: URCap Installation Node
+  #   Source: Robotiq_Wrist_Connection, 1.1.1.3, Robotiq Inc.
+  #   Type: Wrist Connection
+  def rq_get_io0_value_from_preset(selectedPreset):
+      return (selectedPreset == 2 or selectedPreset == 4)
+  end
+  
+  def rq_get_io1_value_from_preset(selectedPreset):
+      return (selectedPreset == 3 or selectedPreset == 4)
+  end
+  
+  def wait_for_completion():
+      while(get_tool_digital_in(0) == False and get_tool_digital_in(1) == False):
+          sleep(0.01)
+      end
+  end
+  
+  def rq_wrist_conn_is_obj_0():
+      return get_tool_digital_in(0) == False and get_tool_digital_in(1) == False
+  end
+  
+  def rq_wrist_conn_is_obj_1():
+      return get_tool_digital_in(0) == True and get_tool_digital_in(1) == False
+  end
+  
+  def rq_wrist_conn_is_obj_2():
+      return get_tool_digital_in(0) == False and get_tool_digital_in(1) == True
+  end
+  
+  def rq_wrist_conn_is_obj_3():
+      return get_tool_digital_in(0) == True and get_tool_digital_in(1) == True
+  end
+  # end: URCap Installation Node
+  while (True):
+    $ 1 "Robot Program"
+    $ 2 "Loop"
+    while (True):
+      $ 3 "MoveJ"
+      $ 4 "Waypoint_1" "breakAfter"
+      movej(get_inverse_kin(p[-.150000000000, .199999983758, .099999989732, .000000057997, -3.140000004039, .000000045973], qnear=[-1.3807271405476556, -1.6384944752068265, -4.165482732049977, 1.0912873613751395, 1.5692323532858214, 0.19006938478425006]), a=1.3962634015954636, v=1.0471975511965976)
+      $ 5 "MoveL"
+      $ 6 "Waypoint_2" "breakAfter"
+      movel(p[-.150000000000, .200000000000, -.000000008250, .000001060300, -3.139999998853, -.000000011547], a=1.2, v=0.25)
+      $ 7 "Set DO[0]=On"
+      set_standard_digital_out(0, True)
+      $ 8 "Waypoint_3" "breakAfter"
+      movel(p[-.150000000000, .200000016141, .100000061370, .000000806700, -3.140000110066, -.000000040173], a=1.2, v=0.25)
+      $ 9 "MoveJ"
+      $ 10 "Waypoint_4" "breakAfter"
+      movej(get_inverse_kin(p[.024999963111, .149999982111, .099999941260, .000001060343, -3.140000047942, -.000000064621], qnear=[-2.5385173002828374, -1.9614284674272948, -3.9294438997851757, 1.1797950267792825, 1.5698930025099687, -0.9677222410787181]), a=1.3962634015954636, v=1.0471975511965976)
+      $ 11 "MoveL"
+      $ 12 "Waypoint_5" "breakAfter"
+      movel(p[.024999919504, .149999952055, -.000000008250, .000001060300, -3.139999998853, -.000000011546], a=1.2, v=0.25)
+      $ 13 "Set DO[0]=Off"
+      set_standard_digital_out(0, False)
+      $ 14 "Waypoint_6" "breakAfter"
+      movel(p[.025000000000, .150000000000, .100000022048, .000000207113, -3.140000355910, .000000001643], a=1.2, v=0.25)
+      $ 15 "MoveJ"
+      $ 16 "Waypoint_7" "breakAfter"
+      movej(get_inverse_kin(p[.419999967836, .500000002898, .100000015442, .000001008436, -3.140000343196, -.000000406528], qnear=[-2.4377697149860342, -0.6177228132829589, -5.6574935356725495, 1.5640411376955734, 1.5697656869886876, -0.866974655781922]), a=1.3962634015954636, v=1.0471975511965976)
+      $ 17 "MoveL"
+      $ 18 "Waypoint_8" "breakAfter"
+      movel(p[.419999957278, .499999993909, .000000001920, .000001008388, -3.140000297755, -.000000345968], a=1.2, v=0.25)
+      $ 19 "Set DO[0]=On"
+      set_standard_digital_out(0, True)
+      $ 20 "Waypoint_9" "breakAfter"
+      movel(p[.419999957144, .499999993821, .099999997721, .000001008388, -3.140000297755, -.000000345968], a=1.2, v=0.25)
+      $ 21 "MoveJ"
+      $ 22 "Waypoint_4" "breakAfter"
+      movej(get_inverse_kin(p[.024999963111, .149999982111, .099999941260, .000001060343, -3.140000047942, -.000000064621], qnear=[-2.5385173002828374, -1.9614284674272948, -3.9294438997851757, 1.1797950267792825, 1.5698930025099687, -0.9677222410787181]), a=1.3962634015954636, v=1.0471975511965976)
+      $ 23 "MoveJ"
+      $ 24 "Waypoint_5" "breakAfter"
+      movej(get_inverse_kin(p[.024999919504, .149999952055, -.000000008250, .000001060300, -3.139999998853, -.000000011546], qnear=[-2.538517300282532, -1.759237114583172, -3.748961512242454, 0.79712134599683, 1.569893002510108, -0.9677222410783974]), a=1.3962634015954636, v=1.0471975511965976)
+      $ 25 "Set DO[0]=Off"
+      set_standard_digital_out(0, False)
+      $ 26 "Waypoint_6" "breakAfter"
+      movej(get_inverse_kin(p[.025000000000, .150000000000, .100000022048, .000000207113, -3.140000355910, .000000001643], qnear=[-2.5385169003661243, -1.961428503323969, -3.9294441632680304, 1.1797950958495056, 1.5698932110627046, -0.9677212974626777]), a=1.3962634015954636, v=1.0471975511965976)
+      $ 27 "Wait DI[1]=HI"
+      while (get_standard_digital_in(1) == False):
+        sync()
+      end
+    end
+  end
+end

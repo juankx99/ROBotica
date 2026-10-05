@@ -1,0 +1,28 @@
+ Program
+   Robot Program
+     Loop
+       MoveJ
+         Waypoint_1
+       MoveL
+         Waypoint_2
+         Set DO[0]=On
+         Waypoint_3
+       MoveJ
+         Waypoint_4
+       MoveL
+         Waypoint_5
+         Set DO[0]=Off
+         Waypoint_6
+       MoveJ
+         Waypoint_7
+       MoveL
+         Waypoint_8
+         Set DO[0]=On
+         Waypoint_9
+       MoveJ
+         Waypoint_4
+         MoveJ
+           Waypoint_5
+           Set DO[0]=Off
+           Waypoint_6
+       Wait DI[1]=HI
